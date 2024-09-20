@@ -1,64 +1,86 @@
-# ASU Bookstore Web App
+# 📚 ASU Bookstore Web App
 
-### Project Overview
+Welcome to the **ASU Bookstore Web App** project! This platform is designed to help **Arizona State University** students buy and sell textbooks with ease.
 
-This project aims to develop a web application for **Arizona State University** students to conveniently buy and sell textbooks. The app simplifies the process of browsing, purchasing, and selling books, ensuring a streamlined experience tailored to the needs of ASU students.
+---
 
-### Project Purpose
+### 🛠 Project Overview
 
-The goal is to provide an efficient platform where ASU students can:
+We are developing a web application for ASU students to:
 
-- Buy and sell textbooks easily.
-- View detailed book information, including condition and seller details.
-- Manage their transactions with an intuitive interface.
+- Buy textbooks easily.
+- Sell used textbooks to other students.
+- Manage purchases and sales with a simple, user-friendly interface.
 
-This project seeks to make the book-buying experience more accessible and affordable for students, while also offering an easy way to resell books.
+---
 
-### Team Members
+### 🎯 Project Purpose
 
-Our dedicated team consists of the following members:
+Our goal is to make the book-buying and selling process more accessible for students, offering them a platform tailored to their needs.
 
-- **Abdirisaq Abdisalam**
-- **Tumaini Donedison**
-- **Rahul Patel**
-- **Tuhina Singh**
-- **Jun Song**
+---
 
-Each team member is actively contributing to various aspects of the project, including front-end development, back-end integration, and overall design.
+### 👥 Team Members
 
-### Key Features
+Meet the amazing team working on this project:
 
-- **Book Listings**: View available books with detailed information like condition, price, and seller rating.
-- **Book Purchase**: Secure and user-friendly purchase process, including shipping and payment options.
-- **Seller Dashboard**: Manage listed, sold, and pending books.
-- **Review & Report**: Leave reviews for sellers and report any issues directly within the platform.
-- **Responsive Design**: Optimized for both desktop and mobile users.
+- **Abdirisaq Abdisalam** 🎓
+- **Tumaini Donedison** 🎓
+- **Rahul Patel** 🎓
+- **Tuhina Singh** 🎓
+- **Jun Song** 🎓
 
-### Figma Design
+---
 
-You can view the full design for the ASU Bookstore Web App on **Figma**. This includes all UI/UX components and interactions that we are working on:  
-[View Figma Design](https://www.figma.com/design/w4xP4b6ZEQeTfruRTu9mEO/ASU-Bookstore?node-id=101-6&t=e6Cpgx5YKiBr4RYT-1)
+### ✨ Key Features
 
-### Tech Stack
+- **📘 Book Listings**: View available books with detailed information.
+- **💳 Book Purchase**: Secure and easy-to-use purchase process.
+- **📊 Seller Dashboard**: Manage listed and sold books effortlessly.
+- **⭐️ Review & Report**: Leave reviews and report issues.
+- **📱 Responsive Design**: Optimized for desktop and mobile devices.
 
-- **Front-end**: JavaFX, JavaScript, CSS
-- **Back-end**: Node.js
-- **Database**: PostgreSQL. AWS S3
-- **UI/UX Design**: Figma.
-- **Version Control**: GitHub for collaboration and versioning.
+---
 
-### How to Run the Project
+### 🎨 Figma Design
 
-1. Clone the repository: `git clone https://github.com/songjeongjun320/Bookstore_project`
-2. Navigate to the project directory: `cd Bookstore_project/front_end`
-3. Install dependencies: `npm install`
-4. Start the app: `npm start`
+Check out our design on **Figma**!  
+🔗 [View Figma Design](https://www.figma.com/design/w4xP4b6ZEQeTfruRTu9mEO/ASU-Bookstore?node-id=101-6&t=e6Cpgx5YKiBr4RYT-1)
+
+---
+
+### 🧑‍💻 Tech Stack
+
+We are using modern technologies to build this app:
+
+- **Frontend**: JavaFX, JavaScript, CSS
+- **Backend**: Node.js
+- **Database**: PostgreSQL
+- **Design**: Figma
+- **Version Control**: GitHub, Jira
+
+---
+
+### 🚀 How to Run the Project
+
+1. Clone the repository:  
+   `git clone https://github.com/songjeongjun320/Bookstore_project`
+2. Navigate to the project directory:  
+   `cd Bookstore_project/front_end`
+3. Install dependencies:  
+   `npm install`
+4. Start the app:  
+   `npm start`
 5. The app will run locally on [http://localhost:3000](http://localhost:3000)
 
-### Contribution
+---
 
-We welcome contributions! If you'd like to contribute, please submit a pull request or raise an issue. Feedback and suggestions are always appreciated.
+### 🤝 Contribution
 
-### License
+We welcome contributions! Feel free to submit pull requests or open issues. All feedback and suggestions are appreciated.
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+---
+
+### 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
