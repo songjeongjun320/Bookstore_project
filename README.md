@@ -50,7 +50,7 @@ You can view the full design for the ASU Bookstore Web App on **Figma**. This in
 ### How to Run the Project
 
 1. Clone the repository: `git clone https://github.com/songjeongjun320/Bookstore_project`
-2. Navigate to the project directory: `cd asu-bookstore`
+2. Navigate to the project directory: `cd Bookstore_project/front_end`
 3. Install dependencies: `npm install`
 4. Start the app: `npm start`
 5. The app will run locally on [http://localhost:3000](http://localhost:3000)
