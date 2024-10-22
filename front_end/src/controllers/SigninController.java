@@ -1,3 +1,4 @@
+// SigninController.java (수정됨)
 package controllers;
 
 import javafx.application.Application;
@@ -50,7 +51,7 @@ public class SigninController extends Application {
         roleBox.setAlignment(Pos.CENTER);
 
         // Login Button
-        Button loginButton = new Button("LOG IN - FIND YOUR BOOK");
+        Button loginButton = new Button("SIGN IN - FIND YOUR BOOK");
         loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         loginButton.setPrefWidth(300);
 
@@ -88,8 +89,8 @@ public class SigninController extends Application {
 
     // Open the Signup page and close the Login page
     private void openSignupPage(Stage primaryStage) {
-        // Close the Login window
-        primaryStage.close();  // Close the SignIn window
+        // Close the Signin window
+        primaryStage.close();
 
         // Create a new Stage (window) for the Signup page
         Stage signupStage = new Stage();

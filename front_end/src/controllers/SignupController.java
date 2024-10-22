@@ -48,7 +48,7 @@ public class SignupController extends Application {
         roleBox.setAlignment(Pos.CENTER);
 
         // Login Button
-        Button loginButton = new Button("LOG IN - FIND YOUR BOOK");
+        Button loginButton = new Button("SIGN UP");
         loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         loginButton.setPrefWidth(300);
 
