@@ -5,10 +5,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SignupController extends Application {
+public class SigninController extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -55,7 +57,9 @@ public class SignupController extends Application {
         // Sign Up and Forgot Password Links
         Hyperlink signupLink = new Hyperlink("Sign up");
         signupLink.setStyle("-fx-text-fill: white;");
-        signupLink.setOnAction(e -> openSignupPage()); // Open Signup page on click
+        signupLink.setOnAction(e -> {
+            openSignupPage(primaryStage);  // Open Signup page and close Login window
+        });
 
         Hyperlink forgotPasswordLink = new Hyperlink("Forgot password?");
         forgotPasswordLink.setStyle("-fx-text-fill: white;");
@@ -82,13 +86,16 @@ public class SignupController extends Application {
         primaryStage.show();
     }
 
-    // Open the Signup page
-    private void openSignupPage() {
+    // Open the Signup page and close the Login page
+    private void openSignupPage(Stage primaryStage) {
+        // Close the Login window
+        primaryStage.close();  // Close the SignIn window
+
         // Create a new Stage (window) for the Signup page
         Stage signupStage = new Stage();
         SignupController signupController = new SignupController();
         try {
-            signupController.start(signupStage); // Call SignupController's start method
+            signupController.start(signupStage);  // Call SignupController's start method to open the new window
         } catch (Exception e) {
             e.printStackTrace();
         }
