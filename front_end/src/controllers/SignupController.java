@@ -38,7 +38,7 @@ public class SignupController {
             return;
         }
 
-        // API 호출
+        // API call
         JSONObject json = new JSONObject();
         json.put("username", username);
         json.put("password", password);
@@ -47,11 +47,11 @@ public class SignupController {
         fetch("POST", "/signup", json.toString());
     }
 
-    // fetch 메소드
+    // Fetch method
     private void fetch(String method, String endpoint, String body) {
-        // 비동기 호출 구현
+        // Asynchronous call implementation
         System.out.println("Request to: " + endpoint);
         System.out.println("Data: " + body);
-        // 실제 구현 시 HttpURLConnection 또는 외부 라이브러리 사용 가능
+        // In actual implementation, you can use HttpURLConnection or an external library
     }
 }
