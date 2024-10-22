@@ -23,16 +23,30 @@ public class SignupController extends Application {
         Label cartIcon = new Label("🛒");
         cartIcon.setStyle("-fx-font-size: 60px; -fx-text-fill: white;");
 
-        // Username and Password Fields
+        // Username, Password, Legal Last Name, Legal First Name, ASURITE, Phone Fields
         TextField usernameField = new TextField();
         usernameField.setPromptText("USERNAME");
-        usernameField.setPrefWidth(300);
         usernameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
-
+        
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("PASSWORD");
-        passwordField.setPrefWidth(300);
         passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+
+        TextField lastNameField = new TextField();
+        lastNameField.setPromptText("LEGAL LAST NAME");
+        lastNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+        
+        TextField firstNameField = new TextField();
+        firstNameField.setPromptText("LEGAL FIRST NAME");
+        firstNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+        
+        TextField asuriteField = new TextField();
+        asuriteField.setPromptText("ASURITE");
+        asuriteField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+        
+        TextField phoneField = new TextField();
+        phoneField.setPromptText("PHONE");
+        phoneField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
 
         // RadioButton for Seller and Buyer
         ToggleGroup roleGroup = new ToggleGroup();
@@ -47,51 +61,38 @@ public class SignupController extends Application {
         HBox roleBox = new HBox(20, sellerOption, buyerOption);
         roleBox.setAlignment(Pos.CENTER);
 
-        // Login Button
-        Button loginButton = new Button("SIGN UP");
-        loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
-        loginButton.setPrefWidth(300);
+        // Sign Up Button
+        Button signupButton = new Button("SIGN UP");
+        signupButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
+        signupButton.setMaxWidth(Double.MAX_VALUE);  // 최대 너비 설정
+        signupButton.setOnAction(e -> openSigninPage(primaryStage));  // Sign up 후 로그인 페이지로 이동
 
-        // Sign Up and Forgot Password Links
-        Hyperlink signupLink = new Hyperlink("Sign up");
-        signupLink.setStyle("-fx-text-fill: white;");
-        signupLink.setOnAction(e -> openSignupPage()); // Open Signup page on click
-
-        Hyperlink forgotPasswordLink = new Hyperlink("Forgot password?");
-        forgotPasswordLink.setStyle("-fx-text-fill: white;");
-
-        HBox linksBox = new HBox(30, signupLink, forgotPasswordLink);
-        linksBox.setAlignment(Pos.CENTER);
-
-        // Inner layout (Login Form)
-        VBox layout = new VBox(30, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, roleBox, loginButton, linksBox);
+        // Inner layout (Signup Form)
+        VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #8b0000;");
-        layout.setMaxWidth(450);
-        layout.setMaxHeight(650);
+        layout.setMaxWidth(450);  // 최대 너비 설정
+        layout.setFillWidth(true);  // 내부 요소가 레이아웃에 맞게 확장됨
 
         // Outer layout to center the inner layout
-        StackPane outerLayout = new StackPane(layout); // Use StackPane to center
-        outerLayout.setStyle("-fx-background-color: #8b0000;"); // Background color
+        StackPane outerLayout = new StackPane(layout);
+        outerLayout.setStyle("-fx-background-color: #8b0000;");
         outerLayout.setPadding(new Insets(50)); // Padding for centering
 
-        Scene scene = new Scene(outerLayout, 1200, 800); // Larger scene size
+        Scene scene = new Scene(outerLayout, 600, 800);  // Revise Scene size
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Devil's Reads - Login");
+        primaryStage.setTitle("Devil's Reads - Sign Up");
+
+        primaryStage.setMaximized(true);  // Full-screen
         primaryStage.show();
     }
 
-    // Open the Signup page
-    private void openSignupPage() {
-        // Create a new Stage (window) for the Signup page
-        Stage signupStage = new Stage();
-        SignupController signupController = new SignupController();
-        try {
-            signupController.start(signupStage); // Call SignupController's start method
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    // Open the Signin page after successful signup
+    private void openSigninPage(Stage primaryStage) {
+        // 회원가입 후 로그인 페이지로 전환
+        SigninController signinController = new SigninController();
+        signinController.start(primaryStage); // SigninController로 페이지 이동
     }
 
     public static void main(String[] args) {

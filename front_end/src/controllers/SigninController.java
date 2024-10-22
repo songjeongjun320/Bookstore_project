@@ -84,6 +84,9 @@ public class SigninController extends Application {
         Scene scene = new Scene(outerLayout, 1200, 800); // Larger scene size
         primaryStage.setScene(scene);
         primaryStage.setTitle("Devil's Reads - Login");
+
+        primaryStage.setMaximized(true);  // Full-screen
+
         primaryStage.show();
     }
 
