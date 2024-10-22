@@ -1,0 +1,10 @@
+<AnchorPane prefWidth="400" prefHeight="600">
+  <Label text="Welcome SunDevil! Devil's Reads" />
+  <TextField fx:id="usernameField" promptText="USERNAME" />
+  <PasswordField fx:id="passwordField" promptText="PASSWORD" />
+  <RadioButton fx:id="sellerOption" text="SELLER" toggleGroup="roleGroup"/>
+  <RadioButton fx:id="buyerOption" text="BUYER" toggleGroup="roleGroup"/>
+  <Button fx:id="loginButton" text="LOG IN - FIND YOUR BOOK" />
+  <Hyperlink fx:id="signupLink" text="Sign up" />
+  <Hyperlink fx:id="forgotPasswordLink" text="Forgot password?" />
+</AnchorPane>
