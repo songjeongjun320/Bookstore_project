@@ -1,5 +1,12 @@
 package controllers;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Arrays;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -65,7 +72,27 @@ public class SignupController extends Application {
         Button signupButton = new Button("SIGN UP");
         signupButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         signupButton.setMaxWidth(Double.MAX_VALUE);  // 최대 너비 설정
-        signupButton.setOnAction(e -> openSigninPage(primaryStage));  // Sign up 후 로그인 페이지로 이동
+        signupButton.setOnAction(f ->
+        {
+        	List<TextInputControl> fields = Arrays.asList(usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField);
+        	if(!fields.stream().anyMatch(e -> e.getText().isBlank()) && roleGroup.getSelectedToggle() != null)
+        	{
+	        	try
+	        	{
+	        		Connection conn = DriverManager.getConnection(Main.dbURL, Main.user, Main.pass);
+	        		Statement stmt = conn.createStatement();
+	        		stmt.executeUpdate("INSERT INTO users (username, password, last_name, first_name, asurite, phone, user_type)\n"
+	        				+ "VALUES ('" + usernameField.getText() + "', '" + passwordField.getText() + "', '" + 
+	        				lastNameField.getText() + "', '" + firstNameField.getText() + "', " + Integer.parseInt(asuriteField.getText()) + ", " 
+	        				+ Integer.parseInt(phoneField.getText()) + ", '" + (roleGroup.getSelectedToggle() == sellerOption ? "seller" : "buyer") + "');");
+		        	openSigninPage(primaryStage);
+	        	}
+	        	catch(SQLException e)
+	        	{
+	        		e.printStackTrace();
+	        	}
+        	}
+        });  // Sign up 후 로그인 페이지로 이동
 
         // Inner layout (Signup Form)
         VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
