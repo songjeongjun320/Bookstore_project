@@ -1,4 +1,5 @@
-package src.backend;
+package back_end;
+
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
