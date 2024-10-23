@@ -5,6 +5,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+	public static final String dbURL = "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:6543/postgres";
+	public static final String user = "postgres.mwhktbiqmfbfsjzqoppp";
+	public static final String pass = "HhMVmhPkRI4nj32L";
+	
     @Override
     public void start(Stage primaryStage) throws Exception {
         // SigninController의 start 메서드를 호출하여 로그인 페이지 표시
