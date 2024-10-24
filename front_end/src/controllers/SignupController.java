@@ -64,16 +64,16 @@ public class SignupController extends Application {
         // Sign Up Button
         Button signupButton = new Button("SIGN UP");
         signupButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
-        signupButton.setMaxWidth(Double.MAX_VALUE);  // 최대 너비 설정
-        signupButton.setOnAction(e -> openSigninPage(primaryStage));  // Sign up 후 로그인 페이지로 이동
+        signupButton.setMaxWidth(Double.MAX_VALUE);  // Set maximum width
+        signupButton.setOnAction(e -> openSigninPage(primaryStage));  // Navigate to login page after signup
 
         // Inner layout (Signup Form)
         VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #8b0000;");
-        layout.setMaxWidth(450);  // 최대 너비 설정
-        layout.setFillWidth(true);  // 내부 요소가 레이아웃에 맞게 확장됨
+        layout.setMaxWidth(450);  // Set maximum width
+        layout.setFillWidth(true);  // Internal elements expand to fill the layout
 
         // Outer layout to center the inner layout
         StackPane outerLayout = new StackPane(layout);
@@ -90,9 +90,9 @@ public class SignupController extends Application {
 
     // Open the Signin page after successful signup
     private void openSigninPage(Stage primaryStage) {
-        // 회원가입 후 로그인 페이지로 전환
+        // Switch to the login page after signup
         SigninController signinController = new SigninController();
-        signinController.start(primaryStage); // SigninController로 페이지 이동
+        signinController.start(primaryStage); // Navigate to SigninController
     }
 
     public static void main(String[] args) {
