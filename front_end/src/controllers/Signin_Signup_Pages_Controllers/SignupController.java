@@ -1,5 +1,6 @@
-package controllers;
+package controllers.Account_Controllers;
 
+import controllers.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -65,7 +66,9 @@ public class SignupController extends Application {
         Button signupButton = new Button("SIGN UP");
         signupButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         signupButton.setMaxWidth(Double.MAX_VALUE);  // Set maximum width
-        signupButton.setOnAction(e -> openSigninPage(primaryStage));  // Navigate to login page after signup
+        signupButton.setOnAction(e -> {
+            Main.getInstance().showSigninPage(primaryStage);  // Call Main to switch back to Signin page
+        });
 
         // Inner layout (Signup Form)
         VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
@@ -80,19 +83,12 @@ public class SignupController extends Application {
         outerLayout.setStyle("-fx-background-color: #8b0000;");
         outerLayout.setPadding(new Insets(50)); // Padding for centering
 
-        Scene scene = new Scene(outerLayout, 600, 800);  // Revise Scene size
-        primaryStage.setScene(scene);
+        Scene Signupscene = new Scene(outerLayout, 1200, 800);  // Revise Scene size
+        primaryStage.setScene(Signupscene);
         primaryStage.setTitle("Devil's Reads - Sign Up");
 
         primaryStage.setMaximized(true);  // Full-screen
         primaryStage.show();
-    }
-
-    // Open the Signin page after successful signup
-    private void openSigninPage(Stage primaryStage) {
-        // Switch to the login page after signup
-        SigninController signinController = new SigninController();
-        signinController.start(primaryStage); // Navigate to SigninController
     }
 
     public static void main(String[] args) {

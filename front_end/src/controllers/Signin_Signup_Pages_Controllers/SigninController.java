@@ -1,6 +1,6 @@
-// SigninController.java (수정됨)
-package controllers;
+package controllers.Account_Controllers;
 
+import controllers.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -59,11 +59,14 @@ public class SigninController extends Application {
         Hyperlink signupLink = new Hyperlink("Sign up");
         signupLink.setStyle("-fx-text-fill: white;");
         signupLink.setOnAction(e -> {
-            openSignupPage(primaryStage);  // Open Signup page and close Login window
+            Main.getInstance().showSignupPage(primaryStage);  // Call Main to switch to Signup page
         });
 
         Hyperlink forgotPasswordLink = new Hyperlink("Forgot password?");
         forgotPasswordLink.setStyle("-fx-text-fill: white;");
+        forgotPasswordLink.setOnAction(e -> {
+            Main.getInstance().showRecoveryPage(primaryStage);  // Call Main to switch to Recovery page
+        });
 
         HBox linksBox = new HBox(30, signupLink, forgotPasswordLink);
         linksBox.setAlignment(Pos.CENTER);
@@ -86,23 +89,7 @@ public class SigninController extends Application {
         primaryStage.setTitle("Devil's Reads - Login");
 
         primaryStage.setMaximized(true);  // Full-screen
-
         primaryStage.show();
-    }
-
-    // Open the Signup page and close the Login page
-    private void openSignupPage(Stage primaryStage) {
-        // Close the Signin window
-        primaryStage.close();
-
-        // Create a new Stage (window) for the Signup page
-        Stage signupStage = new Stage();
-        SignupController signupController = new SignupController();
-        try {
-            signupController.start(signupStage);  // Call SignupController's start method to open the new window
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static void main(String[] args) {
