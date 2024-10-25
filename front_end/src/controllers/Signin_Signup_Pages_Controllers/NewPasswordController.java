@@ -1,4 +1,4 @@
-package controllers.Account_Controllers;
+package controllers.Signin_Signup_Pages_Controllers;
 
 import controllers.Main;
 import javafx.application.Application;
