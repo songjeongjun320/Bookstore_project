@@ -42,7 +42,7 @@ public class SignupController extends Application {
         firstNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
         TextField asuriteField = new TextField();
-        asuriteField.setPromptText("ASURITE");
+        asuriteField.setPromptText("EMAIL");
         asuriteField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
         TextField phoneField = new TextField();
