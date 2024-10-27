@@ -29,10 +29,6 @@ public class SignupController extends Application {
         usernameField.setPromptText("USERNAME");
         usernameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
-        PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("PASSWORD");
-        passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
-
         TextField lastNameField = new TextField();
         lastNameField.setPromptText("LEGAL LAST NAME");
         lastNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
@@ -42,7 +38,7 @@ public class SignupController extends Application {
         firstNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
         TextField asuriteField = new TextField();
-        asuriteField.setPromptText("EMAIL");
+        asuriteField.setPromptText("ASURITE");
         asuriteField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
         TextField phoneField = new TextField();
@@ -68,10 +64,37 @@ public class SignupController extends Application {
         signupButton.setMaxWidth(Double.MAX_VALUE);  // Set maximum width
         signupButton.setOnAction(e -> {
             Main.getInstance().showSigninPage(primaryStage);  // Call Main to switch back to Signin page
+                String username = usernameField.getText();
+                String lastName = lastNameField.getText();
+                String firstName = firstNameField.getText();
+                String email = emailField.getText();
+                String phone = phoneField.getText();
+                String password = passwordField.getText();
+                String confirmPassword = confirm_passwordField.getText();
+                String role = sellerOption.isSelected() ? "SELLER" : "BUYER";
+
+                // Check the password avaiability
+                if (!password.equals(confirmPassword)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Passwords do not match.");
+                    alert.showAndWait();
+                    return;
+                }
+
+                // Store the data
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("database.txt", true))) {
+                    writer.write(String.format("Username: %s, Last Name: %s, First Name: %s, Email: %s, Phone: %s, Role: %s%n",
+                            username, lastName, firstName, email, phone, role));
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Error saving data.");
+                    alert.showAndWait();
+                    return;
+                }
+
         });
 
         // Inner layout (Signup Form)
-        VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
+        VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, confirm_passwordField, lastNameField, firstNameField, emailField, phoneField, roleBox, signupButton);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #8b0000;");
