@@ -72,19 +72,25 @@ public class SignupController extends Application {
         Button signupButton = new Button("SIGN UP");
         signupButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         signupButton.setMaxWidth(Double.MAX_VALUE);  // 최대 너비 설정
-        signupButton.setOnAction(f ->
+        
+        signupButton.setOnAction(f->
         {
         	List<TextInputControl> fields = Arrays.asList(usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField);
+        	//Only runs if all of our fields aren't empty and our toggles are selected
         	if(!fields.stream().anyMatch(e -> e.getText().isBlank()) && roleGroup.getSelectedToggle() != null)
         	{
 	        	try
 	        	{
+	        		//Connects to the database
 	        		Connection conn = DriverManager.getConnection(Main.dbURL, Main.user, Main.pass);
 	        		Statement stmt = conn.createStatement();
-	        		stmt.executeUpdate("INSERT INTO users (username, password, last_name, first_name, asurite, phone, user_type)\n"
-	        				+ "VALUES ('" + usernameField.getText() + "', '" + passwordField.getText() + "', '" + 
-	        				lastNameField.getText() + "', '" + firstNameField.getText() + "', " + Integer.parseInt(asuriteField.getText()) + ", " 
-	        				+ Integer.parseInt(phoneField.getText()) + ", '" + (roleGroup.getSelectedToggle() == sellerOption ? "seller" : "buyer") + "');");
+	        		
+	        		//SQL statement
+	        		stmt.executeUpdate("INSERT INTO users (username, password, last_name, first_name, asurite, phone, user_type)\n" + 
+	        		"VALUES ('" + usernameField.getText() + "', '" + passwordField.getText() + "', '" + 
+	        		lastNameField.getText() + "', '" + firstNameField.getText() + "', " + asuriteField.getText() + ", " + 
+	        		phoneField.getText() + ", '" + (roleGroup.getSelectedToggle() == sellerOption ? "seller" : "buyer") + "');");
+	        		
 		        	openSigninPage(primaryStage);
 	        	}
 	        	catch(SQLException e)

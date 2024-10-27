@@ -4,7 +4,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+	
+	//Database information for connection
 	public static final String dbURL = "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:6543/postgres";
 	public static final String user = "postgres.mwhktbiqmfbfsjzqoppp";
 	public static final String pass = "HhMVmhPkRI4nj32L";

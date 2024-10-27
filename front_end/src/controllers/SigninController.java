@@ -1,6 +1,12 @@
 // SigninController.java (수정됨)
 package controllers;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,9 +18,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SigninController extends Application {
-
+	boolean loginSuccessful = false;
+	
     @Override
     public void start(Stage primaryStage) {
+    	
+    	
         // Create UI components
         Label titleLabel = new Label("Welcome SunDevil!");
         titleLabel.setStyle("-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;");
@@ -50,10 +59,48 @@ public class SigninController extends Application {
         HBox roleBox = new HBox(20, sellerOption, buyerOption);
         roleBox.setAlignment(Pos.CENTER);
 
-        // Login Button
+        //Login Button
         Button loginButton = new Button("SIGN IN - FIND YOUR BOOK");
         loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
         loginButton.setPrefWidth(300);
+        
+        loginButton.setOnAction(f->
+        {
+        	//Only runs if our fields aren't empty and our buttons are selected
+        	if(!usernameField.getText().isBlank() && !passwordField.getText().isBlank() && roleGroup.getSelectedToggle() != null)
+        	{
+	        	try
+	        	{
+	        		//Connects to the database
+	        		Connection conn = DriverManager.getConnection(Main.dbURL, Main.user, Main.pass);
+	        		Statement stmt = conn.createStatement();
+	        		
+	        		//SQL query
+	        		ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+	        		
+	        		//Iterate through our users table
+	        		while(rs.next())
+	        		{
+	        			//If everything matches then login
+	        			if(rs.getString("username").equals(usernameField.getText()) && rs.getString("password").equals(passwordField.getText()) && 
+	        			((rs.getString("user_type").equals("buyer") && roleGroup.getSelectedToggle() == buyerOption) || (rs.getString("user_type").equals("seller") && roleGroup.getSelectedToggle() == sellerOption)))
+	        			{
+	        				signIn();
+	        			}
+	        		}
+	        	}
+	        	
+	        	catch(SQLException e)
+	        	{
+	        		e.printStackTrace();
+	        	}
+        	}
+        	
+        	if(!loginSuccessful)
+    		{
+    			System.out.println("Sign in not successful");
+    		}
+        });
 
         // Sign Up and Forgot Password Links
         Hyperlink signupLink = new Hyperlink("Sign up");
@@ -105,6 +152,12 @@ public class SigninController extends Application {
         }
     }
 
+    void signIn()
+    {
+    	System.out.println("Successfully signed in");
+		loginSuccessful = true;
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }
