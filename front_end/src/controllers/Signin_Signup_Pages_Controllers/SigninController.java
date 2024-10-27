@@ -87,7 +87,19 @@ public class SigninController extends Application {
         loginButton.setOnAction(e -> {
             String email = usernameField.getText();
             String password = passwordField.getText();
-            String role = ((RadioButton) roleGroup.getSelectedToggle()).getText();
+            Toggle selectedToggle = roleGroup.getSelectedToggle();
+
+            // Remove previous message
+            layout.getChildren().removeIf(node -> node instanceof Label && node.getStyle().contains("red"));
+
+            if (selectedToggle == null) {
+                Label errorLabel = new Label("Please select a role (SELLER or BUYER).");
+                errorLabel.setStyle("-fx-text-fill: red;");
+                layout.getChildren().add(errorLabel); 
+                return;
+            }
+        
+            String role = ((RadioButton) selectedToggle).getText(); // 선택된 역할 가져오기
 
             try {
                 List<String> lines = Files.readAllLines(Paths.get("database.txt"));
@@ -116,6 +128,7 @@ public class SigninController extends Application {
                 ex.printStackTrace();
             }
         });
+
 
         // Outer layout to center the inner layout
         StackPane outerLayout = new StackPane(layout); // Use StackPane to center
