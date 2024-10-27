@@ -1,4 +1,8 @@
-package controllers.Account_Controllers;
+package controllers.Signin_Signup_Pages_Controllers;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import controllers.Main;
 import javafx.application.Application;
@@ -29,10 +33,6 @@ public class SignupController extends Application {
         usernameField.setPromptText("USERNAME");
         usernameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
-        PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("PASSWORD");
-        passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
-
         TextField lastNameField = new TextField();
         lastNameField.setPromptText("LEGAL LAST NAME");
         lastNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
@@ -41,10 +41,18 @@ public class SignupController extends Application {
         firstNameField.setPromptText("LEGAL FIRST NAME");
         firstNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
-        TextField asuriteField = new TextField();
-        asuriteField.setPromptText("ASURITE");
-        asuriteField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+        TextField emailField = new TextField();
+        emailField.setPromptText("EMAIL");
+        emailField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("PASSWORD");
+        passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+
+        PasswordField confirm_passwordField = new PasswordField();
+        confirm_passwordField.setPromptText("CONFIRM THE PASSWORD");
+        confirm_passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+
         TextField phoneField = new TextField();
         phoneField.setPromptText("PHONE");
         phoneField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
@@ -68,10 +76,37 @@ public class SignupController extends Application {
         signupButton.setMaxWidth(Double.MAX_VALUE);  // Set maximum width
         signupButton.setOnAction(e -> {
             Main.getInstance().showSigninPage(primaryStage);  // Call Main to switch back to Signin page
+                String username = usernameField.getText();
+                String lastName = lastNameField.getText();
+                String firstName = firstNameField.getText();
+                String email = emailField.getText();
+                String phone = phoneField.getText();
+                String password = passwordField.getText();
+                String confirmPassword = confirm_passwordField.getText();
+                String role = sellerOption.isSelected() ? "SELLER" : "BUYER";
+
+                // Check the password avaiability
+                if (!password.equals(confirmPassword)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Passwords do not match.");
+                    alert.showAndWait();
+                    return;
+                }
+
+                // Store the data
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("database.txt", true))) {
+                    writer.write(String.format("Username: %s, Last Name: %s, First Name: %s, Email: %s, Phone: %s, Role: %s%n",
+                            username, lastName, firstName, email, phone, role));
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Error saving data.");
+                    alert.showAndWait();
+                    return;
+                }
+
         });
 
         // Inner layout (Signup Form)
-        VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, lastNameField, firstNameField, asuriteField, phoneField, roleBox, signupButton);
+        VBox layout = new VBox(20, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, confirm_passwordField, lastNameField, firstNameField, emailField, phoneField, roleBox, signupButton);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #8b0000;");

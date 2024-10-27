@@ -1,10 +1,10 @@
 package controllers;
 
-import controllers.Account_Controllers.EmailverificationController;
-import controllers.Account_Controllers.NewPasswordController;
-import controllers.Account_Controllers.RecoveryController;
-import controllers.Account_Controllers.SigninController;
-import controllers.Account_Controllers.SignupController;
+import controllers.Signin_Signup_Pages_Controllers.EmailverificationController;
+import controllers.Signin_Signup_Pages_Controllers.NewPasswordController;
+import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
+import controllers.Signin_Signup_Pages_Controllers.SigninController;
+import controllers.Signin_Signup_Pages_Controllers.SignupController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
