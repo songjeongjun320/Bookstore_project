@@ -1,1 +1,3 @@
-Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Phone: 12345678, Role: BUYER
+Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
+Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
+Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER

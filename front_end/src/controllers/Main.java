@@ -5,6 +5,7 @@ import controllers.Signin_Signup_Pages_Controllers.NewPasswordController;
 import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
 import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
+import controllers.Main_Pages_Controllers.SearchBookController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -20,6 +21,12 @@ public class Main extends Application {
 
     public static Main getInstance() {
         return instance; // Provide global access to this instance
+    }
+
+    // Method to display Main page
+    public void showMainPage(Stage primaryStage){
+        SearchBookController searchBookController = new SearchBookController();
+        searchBookController.start(primaryStage);
     }
 
     // Method to display Signin page

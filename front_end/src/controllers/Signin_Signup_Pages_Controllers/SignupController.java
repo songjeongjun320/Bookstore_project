@@ -94,8 +94,8 @@ public class SignupController extends Application {
 
                 // Store the data
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter("database.txt", true))) {
-                    writer.write(String.format("Username: %s, Last Name: %s, First Name: %s, Email: %s, Phone: %s, Role: %s%n",
-                            username, lastName, firstName, email, phone, role));
+                    writer.write(String.format("Username: %s, Last Name: %s, First Name: %s, Email: %s, Password: %s, Phone: %s, Role: %s%n",
+                            username, lastName, firstName, email, password, phone, role));
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Error saving data.");

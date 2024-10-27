@@ -1,5 +1,10 @@
 package controllers.Signin_Signup_Pages_Controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 import controllers.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -12,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SigninController extends Application {
+    private VBox layout;
 
     @Override
     public void start(Stage primaryStage) {
@@ -50,11 +56,6 @@ public class SigninController extends Application {
         HBox roleBox = new HBox(20, sellerOption, buyerOption);
         roleBox.setAlignment(Pos.CENTER);
 
-        // Login Button
-        Button loginButton = new Button("SIGN IN - FIND YOUR BOOK");
-        loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
-        loginButton.setPrefWidth(300);
-
         // Sign Up and Forgot Password Links
         Hyperlink signupLink = new Hyperlink("Sign up");
         signupLink.setStyle("-fx-text-fill: white;");
@@ -70,14 +71,51 @@ public class SigninController extends Application {
 
         HBox linksBox = new HBox(30, signupLink, forgotPasswordLink);
         linksBox.setAlignment(Pos.CENTER);
+        Button loginButton = new Button("SIGN IN - FIND YOUR BOOK");
 
         // Inner layout (Login Form)
-        VBox layout = new VBox(30, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, roleBox, loginButton, linksBox);
+        layout = new VBox(30, titleLabel, subtitleLabel, cartIcon, usernameField, passwordField, roleBox, loginButton, linksBox);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #8b0000;");
         layout.setMaxWidth(450);
         layout.setMaxHeight(650);
+
+        // Login Button
+        loginButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold;");
+        loginButton.setPrefWidth(300);
+        loginButton.setOnAction(e -> {
+            String email = usernameField.getText();
+            String password = passwordField.getText();
+            String role = ((RadioButton) roleGroup.getSelectedToggle()).getText();
+
+            try {
+                List<String> lines = Files.readAllLines(Paths.get("database.txt"));
+                boolean isAuthenticated = false;
+
+                for (String line : lines) {
+                    String[] parts = line.split(", ");
+                    String fileEmail = parts[3].split(": ")[1]; // Email
+                    String filePassword = parts[4].split(": ")[1]; // Password
+                    String fileRole = parts[6].split(": ")[1]; // Role
+
+                    if (fileEmail.equals(email) && filePassword.equals(password) && fileRole.equals(role)) {
+                        isAuthenticated = true;
+                        break;
+                    }
+                }
+
+                if (isAuthenticated) {
+                    Main.getInstance().showMainPage(primaryStage); // If verifying the id pass to main.
+                } else {
+                    Label errorLabel = new Label("Check the email or password");
+                    errorLabel.setStyle("-fx-text-fill: red;");
+                    layout.getChildren().add(errorLabel); // Make an error
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
 
         // Outer layout to center the inner layout
         StackPane outerLayout = new StackPane(layout); // Use StackPane to center
