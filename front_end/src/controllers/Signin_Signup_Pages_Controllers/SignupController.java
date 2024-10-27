@@ -1,5 +1,9 @@
 package controllers.Signin_Signup_Pages_Controllers;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import controllers.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -37,10 +41,18 @@ public class SignupController extends Application {
         firstNameField.setPromptText("LEGAL FIRST NAME");
         firstNameField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
-        TextField asuriteField = new TextField();
-        asuriteField.setPromptText("ASURITE");
-        asuriteField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+        TextField emailField = new TextField();
+        emailField.setPromptText("EMAIL");
+        emailField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
         
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("PASSWORD");
+        passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+
+        PasswordField confirm_passwordField = new PasswordField();
+        confirm_passwordField.setPromptText("CONFIRM THE PASSWORD");
+        confirm_passwordField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
+
         TextField phoneField = new TextField();
         phoneField.setPromptText("PHONE");
         phoneField.setStyle("-fx-background-color: #5e0505; -fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 1px;");
