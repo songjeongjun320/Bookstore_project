@@ -6,6 +6,7 @@ import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
 import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
 import controllers.Main_Pages_Controllers.SearchBookController;
+import controllers.Purchase_Pages_Controllers.BuyingController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this; // Store the instance for access from other controllers
-        showSigninPage(primaryStage);  // Start with the Signin page
+        showBuyingPage(primaryStage);  // Start with the Signin page
     }
 
     public static Main getInstance() {
@@ -57,6 +58,12 @@ public class Main extends Application {
     public void showNewPasswordPage(Stage primaryStage) {
         NewPasswordController newPasswordController = new NewPasswordController();
         newPasswordController.start(primaryStage);  // Display the email verification
+    }
+
+    // Method to display Buying page
+    public void showBuyingPage(Stage primaryStage) {
+        BuyingController buyingController = new BuyingController();
+        buyingController.start(primaryStage);  // Display the buying page
     }
     
 
