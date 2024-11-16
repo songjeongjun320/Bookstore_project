@@ -7,6 +7,7 @@ import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
 import controllers.Main_Pages_Controllers.SearchBookController;
 import controllers.Account_Pages_Controllers.BuyerAccount;
+import controllers.Book_Detail_Pages_Controllers.BookDetailController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -59,6 +60,13 @@ public class Main extends Application {
         NewPasswordController newPasswordController = new NewPasswordController();
         newPasswordController.start(primaryStage);  // Display the email verification
     }
+    
+    public void showBookDetailPage(Stage primaryStage, String bookName, String author, String condition, String originalPrice, String discountedPrice, String seller, String coverPath, double rating) {
+    BookDetailController bookDetailController = new BookDetailController(primaryStage);
+    primaryStage.setScene(bookDetailController.createScene(bookName, author, condition, originalPrice, discountedPrice, seller, coverPath, rating));
+    primaryStage.show();
+}
+
     
    // Method to display Buyer Profile page
     public void showBuyerProfilePage(Stage primaryStage) {
