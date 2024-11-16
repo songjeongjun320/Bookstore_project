@@ -6,7 +6,7 @@ import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
 import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
 import controllers.Main_Pages_Controllers.SearchBookController;
-import controllers.Account_Pages_Controllers.BuyerProfileView;
+import controllers.Account_Pages_Controllers.BuyerAccount;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
