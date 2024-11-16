@@ -1,4 +1,4 @@
-package controllers;
+package controllers.Account_Pages_Controllers;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
