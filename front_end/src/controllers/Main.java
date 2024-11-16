@@ -59,7 +59,12 @@ public class Main extends Application {
         newPasswordController.start(primaryStage);  // Display the email verification
     }
     
-
+   // Method to display Buyer Profile page
+    public void showBuyerProfilePage(Stage primaryStage) {
+    BuyerProfileView buyerProfileView = new BuyerProfileView(user);
+    buyerProfileView.start(primaryStage);  // Display the buyer profile page
+    }
+    
     public static void main(String[] args) {
         launch(args);  // Start the JavaFX application
     }
