@@ -107,7 +107,6 @@ public class BuyingController extends Application {
             }
         }
         
-
         // Buttons Panel (Cancel & Buy)
         HBox buttonPanel = new HBox(10);  // HBox for horizontal layout
         Button cancelButton = new Button("Cancel");
@@ -118,7 +117,7 @@ public class BuyingController extends Application {
         // Button Styling
         cancelButton.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-font-size: 14px;");
         buyButton.setStyle("-fx-background-color: yellow; -fx-text-fill: black; -fx-font-size: 14px;");
-
+        
         // Wrap the summaryPanel and buttonPanel in a VBox to avoid overlap
         VBox bottomPanel = new VBox(10);  // VBox to contain summary and buttons
         bottomPanel.getChildren().addAll(summaryPanel, buttonPanel);
@@ -137,13 +136,11 @@ public class BuyingController extends Application {
 
         // Event handlers for buttons
         cancelButton.setOnAction(e -> {
-            System.out.println("Cancel button clicked.");
-            // Handle cancellation logic here
+            Main.getInstance().showMainPage(primaryStage);
         });
 
         buyButton.setOnAction(e -> {
-            System.out.println("Buy button clicked.");
-            // Handle purchase logic here
+            Main.getInstance().showInformationPage(primaryStage); // Pass to InformationController.java page
         });
 
         // Create and set the scene
