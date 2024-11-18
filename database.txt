@@ -1,3 +1,5 @@
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
+Username: tuhina, Last Name: Tuhina, First Name: Singh, Email: tuhinas2004@gmail.com, Password: 9949, Phone: 510-421-5874, Role: BUYER
+Username: Tuhina, Last Name: Singh, First Name: Tuhina, Email: tuhinas2004@gmail.com, Password: 9949, Phone: 510-421-5874, Role: BUYER
