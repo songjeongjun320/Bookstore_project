@@ -6,6 +6,8 @@ import controllers.Account_Pages_Controllers.*;
 import controllers.Book_Detail_Pages_Controllers.*;
 import controllers.Main_Pages_Controllers.*;
 import controllers.Purchase_Pages_Controllers.*;
+import controllers.Seller_Buyer_Pages_Controllers.Buyer_view.BuyerPovController;
+import controllers.Seller_Buyer_Pages_Controllers.Seller_view.SellerPovController;
 import controllers.Purchase_Pages_Controllers.*;
 import controllers.Signin_Signup_Pages_Controllers.*;
 
@@ -20,7 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this; // Store the instance for access from other controllers
-        showBuyingPage(primaryStage); 
+        showBuyerPovPage(primaryStage); 
     }
 
     public static Main getInstance() {
@@ -84,6 +86,18 @@ public class Main extends Application {
         OverviewController overviewController = new OverviewController();
         overviewController.start(primaryStage);
     }
+
+    // Seller_Pages Controllers ////////////////////////////////////////////////////////////////////////////
+    public void showBuyerPovPage(Stage primaryStage){
+        BuyerPovController buyerPovController = new BuyerPovController();
+        buyerPovController.start(primaryStage);
+    }
+
+    public void showSellerPovPage(Stage primaryStage){
+        SellerPovController sellerPovController = new SellerPovController();
+        sellerPovController.start(primaryStage);
+    }
+
     
     public static void main(String[] args) {
         launch(args);  // Start the JavaFX application
