@@ -15,10 +15,10 @@ import java.io.File;
 public class ProfileView {
 
     private final Stage primaryStage;
-    private final User user;
+    private final Users user;
     private final ImageView profilePicture;
 
-    public ProfileView(Stage stage, User user) {
+    public ProfileView(Stage stage, Users user) {
         this.primaryStage = stage;
         this.user = user;
         profilePicture = new ImageView(new Image("default.png", 150, 150, false, false));
@@ -58,6 +58,10 @@ public class ProfileView {
     private void openEditInfoView() {
         EditInfoView editInfoView = new EditInfoView(primaryStage, user, this);
         primaryStage.setScene(editInfoView.createScene());
+    }
+    public void start(Stage stage) {
+        stage.setScene(createScene());
+        stage.show();
     }
 
     public void refresh() {

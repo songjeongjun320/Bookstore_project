@@ -6,6 +6,8 @@ import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
 import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
 import controllers.Main_Pages_Controllers.SearchBookController;
+import controllers.Account_Pages_Controllers.ProfileView;
+import controllers.Account_Pages_Controllers.Users;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -58,7 +60,12 @@ public class Main extends Application {
         NewPasswordController newPasswordController = new NewPasswordController();
         newPasswordController.start(primaryStage);  // Display the email verification
     }
-    
+    private Users user;
+    public void showProfileViewPage(Stage primaryStage)
+    {
+        ProfileView profileView = new ProfileView(primaryStage, user);
+        profileView.start(primaryStage);    
+    }
 
     public static void main(String[] args) {
         launch(args);  // Start the JavaFX application
