@@ -34,7 +34,7 @@ public class Users {
     public String getPhone() {
         return phone;
     }
-    ublic void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
