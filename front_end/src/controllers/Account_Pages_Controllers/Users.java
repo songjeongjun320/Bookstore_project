@@ -1,4 +1,4 @@
-package controllers.Seller_Pages_Controllers.Buyer_view;
+package controllers.Account_Pages_Controllers;
 
 public class Users {
     private  String username;
@@ -34,7 +34,7 @@ public class Users {
     public String getPhone() {
         return phone;
     }
-    ublic void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
