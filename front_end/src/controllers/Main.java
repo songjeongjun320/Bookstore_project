@@ -22,7 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this; // Store the instance for access from other controllers
-        showBuyerPovPage(primaryStage); 
+        showEmailverificationPage(primaryStage); 
     }
 
     public static Main getInstance() {
