@@ -5,8 +5,10 @@ import controllers.Signin_Signup_Pages_Controllers.NewPasswordController;
 import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
 import controllers.Signin_Signup_Pages_Controllers.SigninController;
 import controllers.Signin_Signup_Pages_Controllers.SignupController;
-import controllers.Main_Pages_Controllers.SearchBookController;
+import controllers.Account_Pages_Controllers.AdminPageController;
+import controllers.Account_Pages_Controllers.EditInfoView;
 import controllers.Account_Pages_Controllers.ProfileView;
+import controllers.Main_Pages_Controllers.SearchBookController;
 import controllers.Account_Pages_Controllers.Users;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -66,6 +68,22 @@ public class Main extends Application {
         ProfileView profileView = new ProfileView(primaryStage, user);
         profileView.start(primaryStage);    
     }
+
+    // Methods to display Account Page
+    // public void showAdminPage(Stage primaryStage){
+    //     AdminPageController adminPageController = new AdminPageController();
+    //     adminPageController.start(primaryStage);
+    // }
+    
+    // public void showoEditinfoPage(Stage primaryStage){
+    //     EditInfoView editInfoView = new EditInfoView();
+    //     editInfoView.start(primaryStage);
+    // }
+
+    // public void showProfileViewPage(Stage primaryStage){
+    //     ProfileView profileView = new ProfileView();
+    //     profileView.start(primaryStage);
+    // }
 
     public static void main(String[] args) {
         launch(args);  // Start the JavaFX application
