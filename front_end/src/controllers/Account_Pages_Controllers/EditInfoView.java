@@ -1,4 +1,4 @@
-package controllers;
+package controllers.Account_Pages_Controllers;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 public class EditInfoView {
 
     private final Stage primaryStage;
-    private final User user;
+    private final Users user;
     private final ProfileView profileView;
 
-    public EditInfoView(Stage stage, User user, ProfileView profileView) {
+    public EditInfoView(Stage stage, Users user, ProfileView profileView) {
         this.primaryStage = stage;
         this.user = user;
         this.profileView = profileView;
