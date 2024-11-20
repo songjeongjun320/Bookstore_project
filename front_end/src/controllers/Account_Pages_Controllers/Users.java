@@ -1,4 +1,4 @@
-package controllers.Seller_Pages_Controllers.Buyer_view;
+package controllers.Account_Pages_Controllers;
 
 public class Users {
     private  String username;
