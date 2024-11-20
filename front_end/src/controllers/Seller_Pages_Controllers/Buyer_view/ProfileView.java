@@ -57,7 +57,7 @@ public class ProfileView {
     }
 
     private void openEditInfoView() {
-        EditInfo editInfo = new EditInfo(primaryStage, user, this);
+        EditInfoView editInfo = new EditInfoView(primaryStage, user, this);
         primaryStage.setScene(editInfo.createScene());
     }
 
