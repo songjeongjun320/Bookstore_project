@@ -1,6 +1,7 @@
 package controllers.Main_Pages_Controllers;
 
 import controllers.Account_Pages_Controllers.UserProfileView;
+import controllers.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -168,6 +169,10 @@ public class MainPageLayout extends Application {
         Button addButton = new Button("Add Cart");
         addButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px;");
         addButton.setPrefSize(150, 50);
+        Stage newstage = new Stage();
+        addButton.setOnAction(e -> {
+            Main.getInstance().showBuyingPage(newstage);  // Call Main to switch to Recovery page
+        });
 
         VBox buttons = new VBox(20, addButton);
         buttons.setAlignment(Pos.CENTER);

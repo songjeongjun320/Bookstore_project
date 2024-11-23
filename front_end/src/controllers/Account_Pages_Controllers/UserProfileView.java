@@ -61,7 +61,7 @@ public class UserProfileView {
         root.getChildren().addAll(title, profileCircle, usernameLabel, fullNameLabel, editInfoButton, mainPageButton);
 
         // Create and Set Scene
-        Scene scene = new Scene(root, 600, 800);
+        Scene scene = new Scene(root, 1200, 800);
         primaryStage.setTitle("User Profile");
         primaryStage.setScene(scene);
         primaryStage.show();
