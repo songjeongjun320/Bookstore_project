@@ -38,13 +38,7 @@ public class OverviewController extends Application {
 
         orderDetails.getChildren().addAll(orderPlaced, confirmationText, shippingInfo, orderDate, deliveryEstimate);
 
-        // Image section (Logo or Icon)
-        VBox logoSection = new VBox();
-        logoSection.setAlignment(Pos.TOP_RIGHT);
-        ImageView logoImageView = createImageView("file:/path/to/devil_logo.png", 120, 120); // Replace with the correct image path
-        logoSection.getChildren().add(logoImageView);
-
-        topSection.getChildren().addAll(orderDetails, logoSection);
+        topSection.getChildren().addAll(orderDetails);
         HBox.setHgrow(orderDetails, Priority.ALWAYS);
 
         // Bottom Section - Order Summary
@@ -84,7 +78,7 @@ public class OverviewController extends Application {
         BorderPane.setMargin(bottomSection, new Insets(10, 20, 20, 20));
 
         // Scene setup
-        Scene scene = new Scene(root, 1280, 800);
+        Scene scene = new Scene(root, 1200, 800);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Order Overview");
         primaryStage.setMaximized(true);

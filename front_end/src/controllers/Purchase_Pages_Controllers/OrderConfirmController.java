@@ -91,7 +91,7 @@ public class OrderConfirmController extends Application {
         BorderPane.setAlignment(homeButton, Pos.BOTTOM_LEFT);
 
         // Scene setup
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1200, 800);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Order Confirmation");
         primaryStage.setMaximized(true); // Launch in full screen
@@ -142,7 +142,7 @@ public class OrderConfirmController extends Application {
         HBox items = new HBox(10);
         items.setAlignment(Pos.CENTER);
         items.getChildren().addAll(
-            createBookImage("demon_of_unrest.jpg", 120, 160),
+            createBookImage("file:front_end/db/ELON MUSK_ASHLEE VANCE_ASH_NEW_01222023_SCIENCE_$5.99.png", 120, 160),
             createBookImage("dance_with_obsession.jpg", 120, 160)
         );
         otherItems.getChildren().addAll(title, items);

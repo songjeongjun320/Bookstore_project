@@ -125,7 +125,7 @@ public class InformationController extends Application {
         root.setCenter(formLayout);
 
         // Scene setup
-        Scene scene = new Scene(root, 1280, 800); // Fullscreen width and height
+        Scene scene = new Scene(root, 1200, 800); // Fullscreen width and height
         primaryStage.setScene(scene);
         primaryStage.setTitle("Purchase Page");
         primaryStage.setMaximized(true); // Fullscreen mode
