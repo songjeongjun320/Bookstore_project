@@ -1,5 +1,6 @@
 package controllers.Main_Pages_Controllers;
 
+import controllers.Account_Pages_Controllers.UserProfileView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,6 +30,16 @@ public class MainPageLayout extends Application {
         topBar.setPadding(new Insets(20));
         topBar.setAlignment(Pos.CENTER_RIGHT);
         topBar.setStyle("-fx-background-color: #8b0000;");
+
+        // Add My Account Button
+        Label myAccountLabel = new Label("My Account");
+        myAccountLabel.setStyle("-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;");
+        myAccountLabel.setOnMouseClicked(e -> {
+            UserProfileView userProfileView = new UserProfileView(primaryStage);
+            userProfileView.show();
+        });
+
+        topBar.getChildren().addAll(myAccountLabel);
 
         // Fetch book data from files
         allBooks = getBooksFromImages("front_end/db");
@@ -67,7 +78,6 @@ public class MainPageLayout extends Application {
         categoryBox.getChildren().add(filterButton);
         categoryBox.setAlignment(Pos.CENTER_LEFT);
         categoryBox.setPadding(new Insets(20));
-        
 
         // GridPane for book sections
         gridPane = new GridPane();
@@ -133,7 +143,7 @@ public class MainPageLayout extends Application {
         }
     }
 
-        /**
+    /**
      * Creates a section for a book.
      */
     private VBox createBookSection(Book book) {
@@ -158,12 +168,6 @@ public class MainPageLayout extends Application {
         Button addButton = new Button("Add Cart");
         addButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px;");
         addButton.setPrefSize(150, 50);
-
-        // View button action: Navigate to detail page
-        // addButton.setOnAction(e -> {
-
-        // });
-        
 
         VBox buttons = new VBox(20, addButton);
         buttons.setAlignment(Pos.CENTER);
@@ -192,7 +196,7 @@ public class MainPageLayout extends Application {
             if (file.isFile() && file.getName().toLowerCase().endsWith(".png")) {
                 String fileName = file.getName().replace(".png", "");
                 String[] parts = fileName.split("_");
-                if (parts.length >= 6) { // Added category as the 6th element
+                if (parts.length >= 6) { // Ensure 6 fields in the file name
                     String title = parts[0].replace("_", " ");
                     String author = parts[1].replace("_", " ");
                     String seller = parts[2];
@@ -201,7 +205,7 @@ public class MainPageLayout extends Application {
                     String category = parts[5];
                     String price = parts[6];
 
-                    books.add(new Book(title, author, seller, condition, date, category, price ,file.getAbsolutePath()));
+                    books.add(new Book(title, author, seller, condition, date, category, price, file.getAbsolutePath()));
                 } else {
                     System.out.println("Invalid file format: " + file.getName());
                 }
@@ -271,7 +275,7 @@ public class MainPageLayout extends Application {
             return imagePath;
         }
 
-        public String getPrice(){
+        public String getPrice() {
             return price;
         }
     }
