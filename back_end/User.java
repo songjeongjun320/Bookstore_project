@@ -196,8 +196,7 @@ public class User {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.contains("userName:" + userName)) {
-                    String updatedLine = String.format("userName:\"%s\", pwd:\"%s\", email:\"%s\", phone:\"%s\", firstName:\"%s\", lastName:\"%s\"",
-                            userName, pwd, email, phone, firstName, lastName);
+                    String updatedLine = String.format("userName:\"%s\", pwd:\"%s\", email:\"%s\", phone:\"%s\", firstName:\"%s\", lastName:\"%s\"", userName, pwd, email, phone, firstName, lastName);
                     lines.add(updatedLine); 
                     updated = true;
                 } else {
@@ -244,11 +243,4 @@ public class User {
     public String getLastName() {
         return lastName;
     }
-
-    /* 
-
-    public void Report(String userName) {
-        // Implement Report Functionality here
-    }
-    */
 }
