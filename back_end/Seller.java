@@ -10,14 +10,14 @@ import java.util.List;
 public class Seller extends User {
     private double rating;
     private int numRaters;
-    private ArrayList<String> listingIDs;
+    private ArrayList<String> listedIDcart;
     private String sellerFile;
 
     public Seller() {
         super();
         this.rating = 0.0;
         this.numRaters = 0;
-        this.listingIDs = new ArrayList<>();
+        this.listedIDcart = new ArrayList<>();
         this.sellerFile = getSellerFilePath();
         loadValues();
     }
@@ -57,9 +57,9 @@ public class Seller extends User {
                 if (parts.length >= 4 && parts[0].equalsIgnoreCase(getUserName())) {
                     this.rating = Double.parseDouble(parts[1]);
                     this.numRaters = Integer.parseInt(parts[2]);
-                    this.listingIDs = new ArrayList<>();
+                    this.listedIDcart = new ArrayList<>();
                     for (int i = 3; i < parts.length; i++) {
-                        listingIDs.add(parts[i]);
+                        listedIDcart.add(parts[i]);
                     }
                     userFound = true;
                     break;
@@ -72,7 +72,7 @@ public class Seller extends User {
         if (!userFound) {
             this.rating = 0.0;
             this.numRaters = 0;
-            this.listingIDs = new ArrayList<>();
+            this.listedIDcart = new ArrayList<>();
         }
     }
 
@@ -146,9 +146,9 @@ public class Seller extends User {
                         updatedLine.append(",").append(parts[i]);
                     }
     
-                    if (!listingIDs.contains(listingID)) {
+                    if (!listedIDcart.contains(listingID)) {
                         updatedLine.append(",").append(listingID);
-                        listingIDs.add(listingID); 
+                        listedIDcart.add(listingID); 
                     }
                     updatedContent.append(updatedLine.toString()).append("\n");
                 } else {
@@ -162,7 +162,7 @@ public class Seller extends User {
             StringBuilder newSeller = new StringBuilder();
             newSeller.append(userName).append(",0.0,0,").append(listingID).append("\n");
             updatedContent.append(newSeller.toString());
-            listingIDs.add(listingID); 
+            listedIDcart.add(listingID); 
         }
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(sellerFile))) {
@@ -187,7 +187,7 @@ public class Seller extends User {
                     updatedLine.append(getUserName()).append(","); 
                     updatedLine.append(rating).append(",");
                     updatedLine.append(numRaters); 
-                    for (String listingID : listingIDs) {
+                    for (String listingID : listedIDcart) {
                         updatedLine.append(",").append(listingID);
                     }
                     updatedContent.append(updatedLine.toString()).append("\n"); 
@@ -213,7 +213,7 @@ public class Seller extends User {
         return numRaters;
     }
     
-    public ArrayList<String> getListingIDs() {
-        return listingIDs;
+    public ArrayList<String> getlistedIDcart() {
+        return listedIDcart;
     }
 }
