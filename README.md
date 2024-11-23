@@ -1,24 +1,117 @@
 # 📚 ASU Bookstore Web App
 
-Welcome to the **ASU Bookstore Web App** project! This platform is designed to help **Arizona State University** students buy and sell textbooks with ease.
+Welcome to the **ASU Bookstore Web App** project! This platform is designed to help **Arizona State University** students buy and sell textbooks with ease. The project highlights innovative solutions to challenges in book management and dynamic page navigation.
 
 ---
 
-### 🛠 Project Overview
+## 🛠 Project Overview
 
-We are developing a web application for ASU students to:
+The **ASU Bookstore Web App** is a comprehensive platform that allows students to:
 
-- Buy textbooks easily.
-- Sell used textbooks to other students.
-- Manage purchases and sales with a simple, user-friendly interface.
+- Purchase textbooks conveniently.
+- List and sell used textbooks with detailed information.
+- Filter, search, and view books dynamically on a user-friendly interface.
+
+---
+
+## 🎯 Challenges and Solutions
+
+### 1. **Branch Merging Conflicts**
+
+- **Issue**: Merging changes from multiple branches resulted in conflicts, especially in the `src/controllers` folder.
+- **Solution**:
+  - Carefully resolved conflicts by reviewing changes manually.
+  - Restored the latest stable version by resetting to the last functional commit.
+
+### 2. **Dynamic Image-Based Metadata**
+
+- **Issue**: Book data was initially inconsistent due to lack of structure in the database.
+- **Solution**:
+  - Implemented a naming convention for book images:  
+    `Title_Author_Seller_Condition_Date_Category.png`.
+  - Dynamically parsed metadata from image file names to populate the application.
+
+### 3. **Page Navigation**
+
+- **Issue**: Seamless navigation between pages was challenging, especially for book details.
+- **Solution**:
+  - Used `Main` as a **Singleton Controller** to manage navigation.
+  - Dynamically created new `Stages` to load specific pages, such as the Book Detail Page.
+
+### 4. **Filtering and Searching**
+
+- **Issue**: Filtering books by category and searching by title required efficient UI and backend integration.
+- **Solution**:
+  - Added `CheckBox` components for category filters.
+  - Implemented `TextField` for search functionality.
+  - Integrated filtering and search to update the main book list dynamically.
+
+### 5. **User-Friendly Interface**
+
+- **Issue**: Creating a responsive and intuitive UI for both desktop and mobile.
+- **Solution**:
+  - Designed layouts using JavaFX components like `GridPane`, `VBox`, `HBox`, and `ScrollPane`.
+  - Ensured books are displayed dynamically with clean transitions and responsive design.
 
 ---
 
-### 🎯 Project Purpose
+## ✨ Key Features
 
-Our goal is to make the book-buying and selling process more accessible for students, offering them a platform tailored to their needs.
+### **📘 Dynamic Book Listings**
+
+- Automatically loads books from the `db` folder, parsing metadata from file names.
+- Displays book details (title, author, seller, condition, date, and category).
+
+### **🔎 Search and Filter**
+
+- **Search**: Allows users to search books by title.
+- **Filter**: Enables filtering books by category (e.g., Science, Business, Philosophy).
+
+### **📋 Book Detail Page**
+
+- Detailed book view including image, metadata, and options to add to cart or buy.
+- Opens dynamically in a new stage when a book is clicked.
+
+### **📱 Responsive Design**
+
+- Optimized for a seamless user experience on both desktop and mobile devices.
+
+### **💳 Add to Cart and Purchase**
+
+- Users can add books to a cart or directly proceed to purchase from the detail page.
 
 ---
+
+## 🧑‍💻 Technical Implementation
+
+### **Frontend**
+
+- Built using **JavaFX** for rich, interactive components.
+- Dynamic layouts created with `GridPane`, `VBox`, and `HBox`.
+
+### **Backend**
+
+- Managed navigation and business logic through a `Main` Singleton Controller.
+- Extracted book details dynamically from image file names.
+
+### **File-Based Data Storage**
+
+- Eliminated the need for a traditional database by storing book metadata in file names.
+
+### **Version Control**
+
+- Resolved merge conflicts and reset to stable versions using Git.
+
+---
+
+## 🚀 How to Run the Project
+
+**Clone the Repository**:
+
+```bash
+git clone https://github.com/songjeongjun320/Bookstore_project
+And just run!
+```
 
 ### 👥 Team Members
 
@@ -58,20 +151,6 @@ We are using modern technologies to build this app:
 - **Database**: PostgreSQL
 - **Design**: Figma
 - **Version Control**: GitHub, Jira
-
----
-
-### 🚀 How to Run the Project
-
-1. Clone the repository:  
-   `git clone https://github.com/songjeongjun320/Bookstore_project`
-2. Navigate to the project directory:  
-   `cd Bookstore_project/front_end`
-3. Install dependencies:  
-   `npm install`
-4. Start the app:  
-   `npm start`
-5. The app will run locally on [http://localhost:3000](http://localhost:3000)
 
 ---
 
