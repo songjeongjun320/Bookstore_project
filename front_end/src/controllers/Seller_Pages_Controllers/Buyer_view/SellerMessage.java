@@ -1,21 +1,20 @@
 package controllers.Seller_Pages_Controllers.Buyer_view;
+
+import controllers.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
 
 public class SellerMessage {
 
     private final Stage primaryStage;
-    private final String username;
-   
 
-    public SellerMessage(Stage primaryStage, String username) {
+    public SellerMessage(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.username = username;
     }
 
     public void show() {
@@ -33,16 +32,15 @@ public class SellerMessage {
 
         Button sendButton = new Button("SEND");
         sendButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        sendButton.setOnAction(e -> messageBox.clear());
+
         Button mainPageButton = new Button("MAIN PAGE");
         mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
-        sendButton.setOnAction(e -> {
-            messageBox.clear(); 
-        });
-        
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
         root.getChildren().addAll(title, messageBox, sendButton, mainPageButton);
 
-        primaryStage.setScene(new Scene(root, 400, 600));
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("Message User");
         primaryStage.show();
     }

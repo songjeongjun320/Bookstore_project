@@ -1,27 +1,20 @@
 package controllers.Seller_Pages_Controllers.Buyer_view;
 
-
+import controllers.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-
 
 public class ReportSeller {
 
-    int i = 2;
     private final Stage primaryStage;
-    private final String username;
-    private final String name;
-  
 
-    public ReportSeller (Stage primaryStage, String username, String name) {
+    public ReportSeller(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.name = name;
-        this.username = username;
     }
 
     public void show() {
@@ -44,9 +37,13 @@ public class ReportSeller {
             new ReportConfirm(primaryStage).show(); 
         });
 
-        root.getChildren().addAll(title, reportBox, reportButton);
+        Button mainPageButton = new Button("MAIN PAGE");
+        mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
-        primaryStage.setScene(new Scene(root, 400, 600));
+        root.getChildren().addAll(title, reportBox, reportButton, mainPageButton);
+
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("Report User");
         primaryStage.show();
     }

@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import controllers.Account_Pages_Controllers.*;
 import controllers.Main_Pages_Controllers.*;
 import controllers.Purchase_Pages_Controllers.*;
@@ -15,8 +13,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static Main instance; // Singleton instance for page management
-    private static String testUsername = "tuhina..aa";
-    private static String testFullname = "Tuhina Singh";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,7 +37,6 @@ public class Main extends Application {
         MainPageLayout mainPageLayout = new MainPageLayout();
         mainPageLayout.start(primaryStage);
     }
-    
 
     // Signin_Signup_Pages Controllers /////////////////////////////////////////////////////////////////////////
     // Method to display Email verification page
@@ -92,57 +87,88 @@ public class Main extends Application {
     }
 
 
-    public void showUserProfilePage(Stage primaryStage, User user) {
-        UserProfileView userProfileView = new UserProfileView(primaryStage, user);
+    public void showUserProfilePage(Stage primaryStage) {
+        UserProfileView userProfileView = new UserProfileView(primaryStage);
         userProfileView.show();
     }
-
-    public void showOtherUserAccountPage(Stage primaryStage, String username, String fullName) {
-        OtherUserAccountView otherUserAccountView = new OtherUserAccountView(primaryStage, username, fullName);
+    
+    
+    public void showOtherUserAccountPage(Stage primaryStage) {
+        OtherUserAccountView otherUserAccountView = new OtherUserAccountView(primaryStage);
         otherUserAccountView.show();
     }
     
-    public void showMessagePage(Stage primaryStage, String username) {
-        MessageView messageView = new MessageView(primaryStage, username);
+    public void showMessagePage(Stage primaryStage) {
+        MessageView messageView = new MessageView(primaryStage);
         messageView.show();
     }
     
-    public void showReportPage(Stage primaryStage, String username, String fullName) {
-        ReportView reportView = new ReportView(primaryStage, username, fullName);
+    public void showReportPage(Stage primaryStage) {
+        ReportView reportView = new ReportView(primaryStage);
         reportView.show();
     }
     
     public void showReportConfirmationPage(Stage primaryStage) {
-        ReportConfirmationView reportConfirmationView = new ReportConfirmationView(primaryStage);
-        reportConfirmationView.show();
+        ReportConfirm reportConfirm = new ReportConfirm(primaryStage);
+        reportConfirm.show();
     }
-    public void showSellerAccountView(Stage primaryStage, String username, String fullName) {
-        SellerAccountView sellerAccountView = new SellerAccountView(
-            primaryStage, 
-            username, 
-            fullName,
-            0.0,  // default rating
-            new ArrayList<>(),  // empty listed books
-            new ArrayList<>()   // empty sold books
-        );
+    
+
+    public void showSellerAccountView(Stage primaryStage) {
+        SellerAccountView sellerAccountView = new SellerAccountView(primaryStage);
         sellerAccountView.show();
     }
     
-    public void showSellerMessage(Stage primaryStage, String username) {
-        SellerMessage sellerMessage = new SellerMessage(primaryStage, username);
-        sellerMessage.show();
-    }
-    
-    public void showReportSeller(Stage primaryStage, String username, String fullName) {
-        ReportSeller reportSeller = new ReportSeller(primaryStage, username, fullName);
-        reportSeller.show();
-    }
+
+public void showSellerMessage(Stage primaryStage) {
+    SellerMessage sellerMessage = new SellerMessage(primaryStage);
+    sellerMessage.show();
+}
+
+public void showReportSeller(Stage primaryStage) {
+    ReportSeller reportSeller = new ReportSeller(primaryStage);
+    reportSeller.show();
+}
+
     
     public void showReportConfirm(Stage primaryStage) {
         ReportConfirm reportConfirm = new ReportConfirm(primaryStage);
         reportConfirm.show();
     }
-
+    public void showAdminPage(Stage primaryStage) {
+        AdminPageController.getInstance(primaryStage).show();
+    }
+    
+    public void showManageAccountsView(Stage primaryStage) {
+        ManageAccountsView manageAccountsView = new ManageAccountsView(primaryStage);
+        manageAccountsView.show();
+    }
+    
+    public void showAdminReportDetailView(Stage primaryStage) {
+        AdminReportDetailView adminReportDetailView = new AdminReportDetailView(primaryStage);
+        adminReportDetailView.show();
+    }
+    
+    public void showReviewReportView(Stage primaryStage) {
+        ReviewReportView reviewReportView = new ReviewReportView(primaryStage);
+        reviewReportView.show();
+    }
+    
+    public void showListingApplicationLogsView(Stage primaryStage) {
+        ListingApplicationLogsView listingApplicationLogsView = new ListingApplicationLogsView(primaryStage);
+        listingApplicationLogsView.show();
+    }
+    
+    public void showTransactionLogsView(Stage primaryStage) {
+        TransactionLogsView transactionLogsView = new TransactionLogsView(primaryStage);
+        transactionLogsView.show();
+    }
+    
+    public void showTransactionStatsView(Stage primaryStage) {
+        TransactionStatsView transactionStatsView = new TransactionStatsView(primaryStage);
+        transactionStatsView.show();
+    }
+    
     public static void main(String[] args) {
         launch(args); // Start the JavaFX application
     }

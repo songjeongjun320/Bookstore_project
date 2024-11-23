@@ -1,6 +1,6 @@
 package controllers.Seller_Pages_Controllers.Seller_view;
 
-
+import controllers.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,16 +12,11 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class OtherUserAccountView {
-    int i =2;
 
     private final Stage primaryStage;
-    private final String username;
-    private final String fullName;
 
-    public OtherUserAccountView(Stage primaryStage, String username, String fullName) {
+    public OtherUserAccountView(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.username = username;
-        this.fullName = fullName;
     }
 
     public void show() {
@@ -34,31 +29,35 @@ public class OtherUserAccountView {
         title.setFont(Font.font("Arial", 24));
 
         Circle profilePicture = new Circle(75);
-        profilePicture.setFill(Color.LIGHTPINK); 
+        profilePicture.setFill(Color.LIGHTPINK);
 
-        Label userNameLabel = new Label("@tuhina.aas");
+        Label userNameLabel = new Label("@tuhina.aa");
         userNameLabel.setTextFill(Color.WHITE);
         userNameLabel.setFont(Font.font("Arial", 20));
 
-        Label fullNameLabel = new Label(fullName);
+        Label fullNameLabel = new Label("Tuhina Singh");
         fullNameLabel.setTextFill(Color.WHITE);
         fullNameLabel.setFont(Font.font("Arial", 16));
 
         Button messageButton = new Button("MESSAGE");
         messageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         messageButton.setOnAction(e -> {
-            new MessageView(primaryStage, username).show();
+            new MessageView(primaryStage).show();
         });
 
         Button reportButton = new Button("REPORT");
         reportButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         reportButton.setOnAction(e -> {
-            new ReportView(primaryStage, username, fullName).show();
+            new ReportView(primaryStage).show();
         });
 
-        root.getChildren().addAll(title, profilePicture, userNameLabel, fullNameLabel, messageButton, reportButton);
+        Button mainPageButton = new Button("MAIN PAGE");
+        mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
-        primaryStage.setScene(new Scene(root, 400, 600));
+        root.getChildren().addAll(title, profilePicture, userNameLabel, fullNameLabel, messageButton, reportButton, mainPageButton);
+
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("User Account");
         primaryStage.show();
     }

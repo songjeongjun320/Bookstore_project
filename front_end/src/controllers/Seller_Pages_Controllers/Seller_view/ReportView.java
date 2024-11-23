@@ -1,25 +1,20 @@
 package controllers.Seller_Pages_Controllers.Seller_view;
 
-
+import controllers.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-
 
 public class ReportView {
-    int i =2;
-    private final Stage primaryStage;
-    private final String username;
-    private final String fullName;
 
-    public ReportView(Stage primaryStage, String username, String fullName) {
+    private final Stage primaryStage;
+
+    public ReportView(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.username = username;
-        this.fullName = fullName;
     }
 
     public void show() {
@@ -39,12 +34,16 @@ public class ReportView {
         reportButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         reportButton.setOnAction(e -> {
             reportBox.clear();
-            new ReportConfirmationView(primaryStage).show(); 
+            new ReportConfirmationView(primaryStage).show();
         });
 
-        root.getChildren().addAll(title, reportBox, reportButton);
+        Button mainPageButton = new Button("MAIN PAGE");
+        mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
-        primaryStage.setScene(new Scene(root, 400, 600));
+        root.getChildren().addAll(title, reportBox, reportButton, mainPageButton);
+
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("Report User");
         primaryStage.show();
     }

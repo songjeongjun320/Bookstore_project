@@ -95,7 +95,7 @@ public class SigninController extends Application {
         
             if (email.equals("admin") && password.equals("admin")) {
                 // Open main page if credentials are correct
-                Main.getInstance().showMainPage(primaryStage);
+                Main.getInstance().showAdminPage(primaryStage);
             }
 
             if (selectedToggle == null) {
