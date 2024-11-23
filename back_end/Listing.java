@@ -1,7 +1,9 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Random;
@@ -84,9 +86,14 @@ public class Listing {
         }
     }
 
-    // Add Listing
     public void addListing() {
-        
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(listingFile, true))) {
+        String listingEntry = "listingID:" + listingID + "," + "title:" + title + "," + "author:" + author + "," + "category:" + category + "," + "condition:" + condition + "," + "priceListed:" + priceListed + "," + "dateListed:" + dateListed + "," + "summary:" + summary + "," + "lister:" + lister;
+        writer.write(listingEntry);
+        writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Delete Listing
