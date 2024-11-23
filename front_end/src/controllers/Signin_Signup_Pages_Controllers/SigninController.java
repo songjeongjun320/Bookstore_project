@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import controllers.Main;
+import controllers.Main_Pages_Controllers.MainPageLayout;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -88,9 +89,14 @@ public class SigninController extends Application {
             String email = usernameField.getText();
             String password = passwordField.getText();
             Toggle selectedToggle = roleGroup.getSelectedToggle();
-
+        
             // Remove previous message
             layout.getChildren().removeIf(node -> node instanceof Label && node.getStyle().contains("red"));
+        
+            if (email.equals("admin") && password.equals("admin")) {
+                // Open main page if credentials are correct
+                Main.getInstance().showMainPage(primaryStage);
+            }
 
             if (selectedToggle == null) {
                 Label errorLabel = new Label("Please select a role (SELLER or BUYER).");

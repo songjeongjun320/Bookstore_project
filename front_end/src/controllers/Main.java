@@ -3,7 +3,6 @@ package controllers;
 import java.util.ArrayList;
 
 import controllers.Account_Pages_Controllers.*;
-import controllers.Book_Detail_Pages_Controllers.*;
 import controllers.Main_Pages_Controllers.*;
 import controllers.Purchase_Pages_Controllers.*;
 import controllers.Seller_Pages_Controllers.Buyer_view.*;
@@ -11,11 +10,6 @@ import controllers.Seller_Pages_Controllers.Seller_view.*;
 import controllers.Signin_Signup_Pages_Controllers.*;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -27,7 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this; // Store the instance for access from other controllers
-        showMainPage(primaryStage); 
+        showSigninPage(primaryStage); 
     }
 
     public static Main getInstance() {
@@ -47,6 +41,7 @@ public class Main extends Application {
         MainPageLayout mainPageLayout = new MainPageLayout();
         mainPageLayout.start(primaryStage);
     }
+    
 
     // Signin_Signup_Pages Controllers /////////////////////////////////////////////////////////////////////////
     // Method to display Email verification page
@@ -122,16 +117,16 @@ public class Main extends Application {
         reportConfirmationView.show();
     }
     public void showSellerAccountView(Stage primaryStage, String username, String fullName) {
-    SellerAccountView sellerAccountView = new SellerAccountView(
-        primaryStage, 
-        username, 
-        fullName,
-        0.0,  // default rating
-        new ArrayList<>(),  // empty listed books
-        new ArrayList<>()   // empty sold books
-    );
-    sellerAccountView.show();
-}
+        SellerAccountView sellerAccountView = new SellerAccountView(
+            primaryStage, 
+            username, 
+            fullName,
+            0.0,  // default rating
+            new ArrayList<>(),  // empty listed books
+            new ArrayList<>()   // empty sold books
+        );
+        sellerAccountView.show();
+    }
     
     public void showSellerMessage(Stage primaryStage, String username) {
         SellerMessage sellerMessage = new SellerMessage(primaryStage, username);
