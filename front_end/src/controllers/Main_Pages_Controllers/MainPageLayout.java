@@ -104,6 +104,7 @@ public class MainPageLayout extends Application {
         Button viewButton = new Button("VIEW BOOK");
         viewButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px;");
         viewButton.setPrefSize(150, 50);
+        
 
         Button addToCartButton = new Button("ADD TO CART");
         addToCartButton.setStyle("-fx-background-color: #ffcc00; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 16px;");
