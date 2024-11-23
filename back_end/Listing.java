@@ -96,9 +96,33 @@ public class Listing {
         }
     }
 
-    // Delete Listing
-
-    // Search Listing
+    public boolean deleteListing(String targetListingID) {
+        boolean listingDeleted = false;
+        StringBuilder updatedContent = new StringBuilder();
+    
+        try (BufferedReader reader = new BufferedReader(new FileReader(listingFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains("listingID:" + targetListingID)) {
+                    listingDeleted = true;
+                    continue; 
+                }
+                updatedContent.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    
+        if (listingDeleted) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(listingFile))) {
+                writer.write(updatedContent.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        return listingDeleted;
+    }
 
     public String getListingID() {
         return listingID;
