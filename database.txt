@@ -1,4 +1,8 @@
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
 Username: jun, Last Name: song, First Name: jun, Email: jsong132@asu.edu, Password: abcd1234!, Phone: 12345678, Role: BUYER
+<<<<<<< HEAD
 Username: a, Last Name: jun, First Name: song, Email: j, Password: b, Phone: j, Role: SELLER
+=======
+Username: a, Last Name: a, First Name: a, Email: a, Password: a, Phone: a, Role: SELLER
+>>>>>>> t

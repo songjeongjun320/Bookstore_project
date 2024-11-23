@@ -1,5 +1,6 @@
 package controllers;
 
+<<<<<<< HEAD
 import java.util.Locale.Category;
 
 import controllers.Account_Pages_Controllers.*;
@@ -12,6 +13,16 @@ import controllers.Purchase_Pages_Controllers.*;
 import controllers.Signin_Signup_Pages_Controllers.*;
 
 
+=======
+import controllers.Signin_Signup_Pages_Controllers.EmailverificationController;
+import controllers.Signin_Signup_Pages_Controllers.NewPasswordController;
+import controllers.Signin_Signup_Pages_Controllers.RecoveryController;
+import controllers.Signin_Signup_Pages_Controllers.SigninController;
+import controllers.Signin_Signup_Pages_Controllers.SignupController;
+import controllers.Main_Pages_Controllers.SearchBookController;
+import controllers.Account_Pages_Controllers.BuyerAccount;
+import controllers.Book_Detail_Pages_Controllers.BookDetailController;
+>>>>>>> t
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -99,6 +110,22 @@ public class Main extends Application {
     }
 
     
+<<<<<<< HEAD
+=======
+    public void showBookDetailPage(Stage primaryStage, String bookName, String author, String condition, String originalPrice, String discountedPrice, String seller, String coverPath, double rating) {
+    BookDetailController bookDetailController = new BookDetailController(primaryStage);
+    primaryStage.setScene(bookDetailController.createScene(bookName, author, condition, originalPrice, discountedPrice, seller, coverPath, rating));
+    primaryStage.show();
+}
+
+    
+   // Method to display Buyer Profile page
+    public void showBuyerProfilePage(Stage primaryStage) {
+    BuyerProfileView buyerProfileView = new BuyerProfileView(user);
+    buyerProfileView.start(primaryStage);  // Display the buyer profile page
+    }
+    
+>>>>>>> t
     public static void main(String[] args) {
         launch(args);  // Start the JavaFX application
     }
