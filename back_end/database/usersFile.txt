@@ -1,0 +1,2 @@
+start
+userName:Lamp, pwd:light, email:lampers@abcd.com, phone:3897483741, firstName:John, lastName:Cena
