@@ -49,20 +49,19 @@ public class Buyer extends User {
             File file = new File(buyerFile);
             reader = new BufferedReader(new FileReader(file));
             String line;
-
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");  
                 if (data[0].equals(userName)) {  
-                    this.cart.clear();  
+                    (this.cart).clear();  
                     for (int i = 1; i < data.length; i++) {
-                        this.cart.add(data[i].trim());
+                        (this.cart).add(data[i].trim());
                     }
                     userFound = true;
                     break;
                 }
             }
             if (!userFound) {
-                this.cart.clear();  
+                (this.cart).clear();  
                 saveNewUser(userName);  
             }
         } catch (IOException e) {
@@ -98,7 +97,6 @@ public class Buyer extends User {
             }
         }
     }
-
     public ArrayList<String> getCart() {
         return cart;
     }
