@@ -1,7 +1,5 @@
 package controllers.Seller_Pages_Controllers.Seller_view;
 
-
-
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

@@ -27,7 +27,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         instance = this; // Store the instance for access from other controllers
-        showEmailverificationPage(primaryStage); 
+        showMainPage(primaryStage); 
     }
 
     public static Main getInstance() {
@@ -101,7 +101,7 @@ public class Main extends Application {
         UserProfileView userProfileView = new UserProfileView(primaryStage, user);
         userProfileView.show();
     }
-    
+
     public void showOtherUserAccountPage(Stage primaryStage, String username, String fullName) {
         OtherUserAccountView otherUserAccountView = new OtherUserAccountView(primaryStage, username, fullName);
         otherUserAccountView.show();
