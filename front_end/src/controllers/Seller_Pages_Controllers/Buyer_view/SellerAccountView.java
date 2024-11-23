@@ -1,5 +1,6 @@
 package controllers.Seller_Pages_Controllers.Buyer_view;
 
+import controllers.Main;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,25 +13,12 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.util.List;
-
 public class SellerAccountView {
-    
 
     private final Stage primaryStage;
-    private final String username;
-    private final String fullName;
-    private final double rating;
-    private final List<String> listedBooks;
-    private final List<String> soldBooks;
 
-    public SellerAccountView(Stage primaryStage, String username, String fullName, double rating, List<String> listedBooks, List<String> soldBooks) {
+    public SellerAccountView(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.username = username;
-        this.fullName = fullName;
-        this.rating = rating;
-        this.listedBooks = listedBooks;
-        this.soldBooks = soldBooks;
     }
 
     public void show() {
@@ -54,35 +42,9 @@ public class SellerAccountView {
         fullNameLabel.setTextFill(Color.WHITE);
         fullNameLabel.setFont(Font.font("Arial", 16));
 
-        Label ratingLabel = new Label("★★★★★ " + rating);
+        Label ratingLabel = new Label("★★★★★ 5.0");
         ratingLabel.setTextFill(Color.YELLOW);
         ratingLabel.setFont(Font.font("Arial", 16));
-
-        Label listedBooksLabel = new Label("Listed Books:");
-        listedBooksLabel.setTextFill(Color.WHITE);
-        listedBooksLabel.setFont(Font.font("Arial", 16));
-
-        VBox listedBooksBox = new VBox(5);
-        listedBooksBox.setAlignment(Pos.CENTER_LEFT);
-        for (String book : listedBooks) {
-            Label bookLabel = new Label(book);
-            bookLabel.setTextFill(Color.WHITE);
-            bookLabel.setFont(Font.font("Arial", 14));
-            listedBooksBox.getChildren().add(bookLabel);
-        }
-
-        Label soldBooksLabel = new Label("Sold Books:");
-        soldBooksLabel.setTextFill(Color.WHITE);
-        soldBooksLabel.setFont(Font.font("Arial", 16));
-
-        VBox soldBooksBox = new VBox(5);
-        soldBooksBox.setAlignment(Pos.CENTER_LEFT);
-        for (String book : soldBooks) {
-            Label bookLabel = new Label(book);
-            bookLabel.setTextFill(Color.WHITE);
-            bookLabel.setFont(Font.font("Arial", 14));
-            soldBooksBox.getChildren().add(bookLabel);
-        }
 
         HBox buttonsBox = new HBox(20);
         buttonsBox.setAlignment(Pos.CENTER);
@@ -90,21 +52,24 @@ public class SellerAccountView {
         Button messageButton = new Button("MESSAGE");
         messageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         messageButton.setOnAction(e -> {
-            new SellerMessage(primaryStage, username).show();
+            new SellerMessage(primaryStage).show(); // Matches your existing working code
         });
 
         Button reportButton = new Button("REPORT");
         reportButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         reportButton.setOnAction(e -> {
-            new ReportSeller(primaryStage, username, fullName).show();
+            new ReportSeller(primaryStage).show(); // Matches your existing working code
         });
+
+        Button mainPageButton = new Button("MAIN PAGE");
+        mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
         buttonsBox.getChildren().addAll(messageButton, reportButton);
 
-        root.getChildren().addAll(title, profilePicture, usernameLabel, fullNameLabel, ratingLabel,
-                listedBooksLabel, listedBooksBox, soldBooksLabel, soldBooksBox, buttonsBox);
+        root.getChildren().addAll(title, profilePicture, usernameLabel, fullNameLabel, ratingLabel, buttonsBox, mainPageButton);
 
-        primaryStage.setScene(new Scene(root, 600, 800));
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("Seller Account");
         primaryStage.show();
     }

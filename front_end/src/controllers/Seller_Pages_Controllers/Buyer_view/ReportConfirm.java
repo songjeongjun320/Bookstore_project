@@ -36,7 +36,7 @@ public class ReportConfirm {
 
         root.getChildren().addAll(thankYouLabel, mainPageButton);
 
-        primaryStage.setScene(new Scene(root, 400, 600));
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setTitle("Report Confirmation");
         primaryStage.show();
     }
