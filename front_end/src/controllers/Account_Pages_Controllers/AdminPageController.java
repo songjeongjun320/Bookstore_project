@@ -48,17 +48,17 @@ public class AdminPageController {
 
         Button transactionsButton = new Button("TRANSACTIONS");
         transactionsButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
-        transactionsButton.setOnAction(e -> {});
+        transactionsButton.setOnAction(e -> new TransactionLogsView(primaryStage).show());
 
         Button manageAccountsButton = new Button("MANAGE ACCOUNTS");
         manageAccountsButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
-        manageAccountsButton.setOnAction(e -> {});
+        manageAccountsButton.setOnAction(e -> new ManageAccountsView(primaryStage).show());
 
         buttonRow1.getChildren().addAll(reviewReportsButton, transactionsButton, manageAccountsButton);
 
         Button listingsButton = new Button("LISTINGS");
         listingsButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
-        listingsButton.setOnAction(e -> {});
+        listingsButton.setOnAction(e -> new ListingApplicationLogsView(primaryStage).show());
 
         Button homeButton = new Button("");
         homeButton.setStyle("-fx-background-color: transparent; -fx-background-image: url('home-icon.png');");
