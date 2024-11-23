@@ -1,5 +1,6 @@
 package controllers.Account_Pages_Controllers;
 
+import controllers.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,32 +14,29 @@ import javafx.stage.Stage;
 
 public class UserProfileView {
 
-    private final User user; // Store user
-    private final Stage primaryStage; 
+    private final Stage primaryStage;
 
-    public UserProfileView(Stage primaryStage, User user) {
+    public UserProfileView(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.user = user;
     }
 
     public void show() {
-        // Layout
         VBox root = new VBox(20);
         root.setAlignment(Pos.CENTER);
-        root.setStyle("-fx-background-color: #5e0505;");
+        root.setStyle("-fx-background-color: #7E1416;");
 
-        // Title text
-        Text title = new Text("Your Account");
+        // Title
+        Text title = new Text("Tuhina's Account");
         title.setFill(Color.WHITE);
         title.setFont(Font.font("Arial", 30));
 
-        // Profile circle as a placeholder
+        // Profile Circle Placeholder
         Circle profileCircle = new Circle(75);
         profileCircle.setFill(Color.LIGHTPINK);
         profileCircle.setStroke(Color.WHITE);
         profileCircle.setStrokeWidth(3);
 
-        // Username and full name labels
+        // Username and Full Name
         Label usernameLabel = new Label("@tuhina.aa");
         usernameLabel.setTextFill(Color.WHITE);
         usernameLabel.setFont(Font.font("Arial", 20));
@@ -47,19 +45,23 @@ public class UserProfileView {
         fullNameLabel.setTextFill(Color.WHITE);
         fullNameLabel.setFont(Font.font("Arial", 16));
 
-        // Edit Info button
+        // Buttons
         Button editInfoButton = new Button("EDIT INFO");
         editInfoButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
         editInfoButton.setOnAction(e -> {
-            EditInfoView editInfoView = new EditInfoView(primaryStage, user, this);
+            EditInfoView editInfoView = new EditInfoView(primaryStage, new User("tuhina.aa", "Tuhina", "Singh"), this);
             editInfoView.show();
         });
 
-        // Add components to the layout
-        root.getChildren().addAll(title, profileCircle, usernameLabel, fullNameLabel, editInfoButton);
+        Button mainPageButton = new Button("MAIN PAGE");
+        mainPageButton.setStyle("-fx-background-color: #FFCC00; -fx-text-fill: black; -fx-font-size: 14px;");
+        mainPageButton.setOnAction(e -> Main.getInstance().showMainPage(primaryStage));
 
-        // Create and set the Scene
-        Scene scene = new Scene(root, 400, 600);
+        // Add Components to Layout
+        root.getChildren().addAll(title, profileCircle, usernameLabel, fullNameLabel, editInfoButton, mainPageButton);
+
+        // Create and Set Scene
+        Scene scene = new Scene(root, 600, 800);
         primaryStage.setTitle("User Profile");
         primaryStage.setScene(scene);
         primaryStage.show();
