@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-import controllers.Main;
 
 public class ReportConfirmationView {
     int i =2;
