@@ -1,16 +1,19 @@
 # 📚 ASU Bookstore Web App
 
-Welcome to the **ASU Bookstore Web App** project! This platform is designed to help **Arizona State University** students buy and sell textbooks with ease. The project highlights innovative solutions to challenges in book management and dynamic page navigation.
+Welcome to the **ASU Bookstore Web App** project! This platform is designed to help **Arizona State University (ASU)** students buy and sell textbooks efficiently. By leveraging dynamic page navigation and user-friendly interfaces, we aim to streamline the book management experience.
 
 ---
 
 ## 🛠 Project Overview
 
-The **ASU Bookstore Web App** is a comprehensive platform that allows students to:
+The **ASU Bookstore Web App** offers a comprehensive solution for textbook trading within the ASU community. It includes features like:
 
-- Purchase textbooks conveniently.
-- List and sell used textbooks with detailed information.
-- Filter, search, and view books dynamically on a user-friendly interface.
+- Seamless textbook purchases.
+- Listing and selling used textbooks with detailed metadata.
+- Dynamic search and filtering capabilities.
+- Responsive design optimized for all devices.
+
+[🔗 GitHub Repository](https://github.com/songjeongjun320/Bookstore_project)
 
 ---
 
@@ -18,67 +21,68 @@ The **ASU Bookstore Web App** is a comprehensive platform that allows students t
 
 ### 1. **Branch Merging Conflicts**
 
-- **Issue**: Merging changes from multiple branches resulted in conflicts, especially in the `src/controllers` folder.
+- **Issue**: Conflicts in `src/controllers` during branch merges.
 - **Solution**:
-  - Carefully resolved conflicts by reviewing changes manually.
-  - Restored the latest stable version by resetting to the last functional commit.
+  - Resolved conflicts manually by reviewing changes.
+  - Reset to the last stable version when necessary.
 
-### 2. **Dynamic Image-Based Metadata**
+### 2. **Dynamic Metadata Extraction**
 
-- **Issue**: Book data was initially inconsistent due to lack of structure in the database.
+- **Issue**: Inconsistent book data due to unstructured file names.
 - **Solution**:
-  - Implemented a naming convention for book images:  
+  - Implemented a naming convention:  
     `Title_Author_Seller_Condition_Date_Category.png`.
-  - Dynamically parsed metadata from image file names to populate the application.
+  - Dynamically parsed metadata to populate book details.
 
-### 3. **Page Navigation**
+### 3. **Seamless Page Navigation**
 
-- **Issue**: Seamless navigation between pages was challenging, especially for book details.
+- **Issue**: Maintaining smooth navigation between book listing and detail pages.
 - **Solution**:
-  - Used `Main` as a **Singleton Controller** to manage navigation.
-  - Dynamically created new `Stages` to load specific pages, such as the Book Detail Page.
+  - Designed `Main` as a **Singleton Controller**.
+  - Dynamically created new `Stages` for specific pages (e.g., Book Detail Page).
 
-### 4. **Filtering and Searching**
+### 4. **Efficient Search and Filtering**
 
-- **Issue**: Filtering books by category and searching by title required efficient UI and backend integration.
+- **Issue**: Combining search by title and filtering by category.
 - **Solution**:
-  - Added `CheckBox` components for category filters.
-  - Implemented `TextField` for search functionality.
-  - Integrated filtering and search to update the main book list dynamically.
+  - Integrated `CheckBox` components for categories.
+  - Added `TextField` for title-based search.
+  - Ensured both features update the book list dynamically.
 
-### 5. **User-Friendly Interface**
+### 5. **Responsive and Intuitive UI**
 
-- **Issue**: Creating a responsive and intuitive UI for both desktop and mobile.
+- **Issue**: Adapting the interface for both desktop and mobile devices.
 - **Solution**:
-  - Designed layouts using JavaFX components like `GridPane`, `VBox`, `HBox`, and `ScrollPane`.
-  - Ensured books are displayed dynamically with clean transitions and responsive design.
+  - Leveraged JavaFX components like `GridPane`, `VBox`, `HBox`, and `ScrollPane`.
+  - Implemented dynamic layouts for a clean and responsive user experience.
 
 ---
 
 ## ✨ Key Features
 
-### **📘 Dynamic Book Listings**
+### 📘 **Dynamic Book Listings**
 
-- Automatically loads books from the `db` folder, parsing metadata from file names.
-- Displays book details (title, author, seller, condition, date, and category).
+- Automatically loads books from the `db` folder.
+- Metadata is extracted from file names to display details such as:
+  - Title, Author, Seller, Condition, Date, and Category.
 
-### **🔎 Search and Filter**
+### 🔎 **Search and Filter**
 
-- **Search**: Allows users to search books by title.
-- **Filter**: Enables filtering books by category (e.g., Science, Business, Philosophy).
+- **Search**: Quickly locate books by title.
+- **Filter**: Narrow down results by categories like Science, Business, or Philosophy.
 
-### **📋 Book Detail Page**
+### 📋 **Book Detail Page**
 
-- Detailed book view including image, metadata, and options to add to cart or buy.
-- Opens dynamically in a new stage when a book is clicked.
+- Provides in-depth information for each book.
+- Features options to add books to a cart or purchase directly.
 
-### **📱 Responsive Design**
+### 📱 **Responsive Design**
 
-- Optimized for a seamless user experience on both desktop and mobile devices.
+- Optimized for both desktop and mobile devices for seamless usability.
 
-### **💳 Add to Cart and Purchase**
+### 💳 **Add to Cart and Purchase**
 
-- Users can add books to a cart or directly proceed to purchase from the detail page.
+- Easily manage purchases through the cart or directly from the book detail page.
 
 ---
 
@@ -86,36 +90,55 @@ The **ASU Bookstore Web App** is a comprehensive platform that allows students t
 
 ### **Frontend**
 
-- Built using **JavaFX** for rich, interactive components.
-- Dynamic layouts created with `GridPane`, `VBox`, and `HBox`.
+- Built using **JavaFX** for a rich, interactive interface.
+- Layouts designed with components like `GridPane`, `VBox`, and `HBox`.
 
 ### **Backend**
 
-- Managed navigation and business logic through a `Main` Singleton Controller.
+- Managed navigation and logic using a `Main` Singleton Controller.
 - Extracted book details dynamically from image file names.
 
 ### **File-Based Data Storage**
 
-- Eliminated the need for a traditional database by storing book metadata in file names.
-
-### **Version Control**
-
-- Resolved merge conflicts and reset to stable versions using Git.
+- Simplified data management by structuring metadata in file names.
 
 ---
 
+## 🗂️ Version Control
+
+Efficient version control was a critical part of our development process. We utilized **GitHub** to manage our codebase and ensure smooth collaboration among team members.
+
+### Workflow:
+
+1. **Branching Strategy**:
+
+   - Each team member worked on their own individual branch to develop specific features or fix bugs.
+   - This ensured that independent work did not interfere with the main codebase.
+
+2. **Merge Process**:
+
+   - Completed branches were merged into a dedicated **merge branch** where all changes were combined.
+   - The combined code underwent rigorous testing to ensure stability and functionality.
+
+3. **Main Branch Deployment**:
+   - Only code that successfully passed all tests was merged into the **main branch**.
+   - This approach ensured that the `main` branch always contained stable and deployable code.
+
+By following this structured process, we maintained high code quality, minimized conflicts, and facilitated effective teamwork throughout the project.
+
 ## 🚀 How to Run the Project
 
-**Clone the Repository**:
+### Clone the Repository:
 
 ```bash
 git clone https://github.com/songjeongjun320/Bookstore_project
-And just run!
+cd Bookstore_project
+# Simply run the project
 ```
 
-### 👥 Team Members
+## 👥 Team Members
 
-Meet the amazing team working on this project:
+We collaborated as a diverse and talented team to bring this project to life:
 
 - **Abdirisaq Abdisalam** 🎓
 - **Tumaini Donedison** 🎓
@@ -125,41 +148,20 @@ Meet the amazing team working on this project:
 
 ---
 
-### ✨ Key Features
+## 🎨 Design with Figma
 
-- **📘 Book Listings**: View available books with detailed information.
-- **💳 Book Purchase**: Secure and easy-to-use purchase process.
-- **📊 Seller Dashboard**: Manage listed and sold books effortlessly.
-- **⭐️ Review & Report**: Leave reviews and report issues.
-- **📱 Responsive Design**: Optimized for desktop and mobile devices.
+Our UI/UX designs are crafted using Figma for a professional and seamless experience. Explore the visual layouts and flows that shape the ASU Bookstore Web App.
 
----
-
-### 🎨 Figma Design
-
-Check out our design on **Figma**!  
 🔗 [View Figma Design](https://www.figma.com/design/w4xP4b6ZEQeTfruRTu9mEO/ASU-Bookstore?node-id=101-6&t=e6Cpgx5YKiBr4RYT-1)
 
 ---
 
-### 🧑‍💻 Tech Stack
+## 🧑‍💻 Tech Stack
 
-We are using modern technologies to build this app:
+We utilized a modern and robust tech stack to develop this project:
 
 - **Frontend**: JavaFX, JavaScript, CSS
 - **Backend**: Node.js
 - **Database**: PostgreSQL
 - **Design**: Figma
 - **Version Control**: GitHub, Jira
-
----
-
-### 🤝 Contribution
-
-We welcome contributions! Feel free to submit pull requests or open issues. All feedback and suggestions are appreciated.
-
----
-
-### 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
